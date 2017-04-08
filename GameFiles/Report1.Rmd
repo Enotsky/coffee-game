@@ -1,0 +1,49 @@
+---
+title: "Coffee Game Report"
+author: "Elizaveta Oginskaya"
+date: "November 6, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(knitr)
+```
+
+## Overview
+
+The year has passed. The macroparameters of the market were as follows:
+
+```{r overview, echo=FALSE}
+setwd("C:/Users/Volod/Documents/R/CoffeeGame")
+Overview <- read.csv("Overview.csv", row.names = 1)
+ggplot(data = Overview, aes(x = as.factor(Period), y = Demand)) + geom_bar(aes(x = as.factor(Period), y = Demand), stat = 'identity') + geom_bar(aes(x = as.factor(Period), y = Sales), stat = 'identity', fill = "red") + xlab("Period") + ylab("Quantity") + ggtitle("Demand and Sales")
+
+kable(Overview)
+
+
+
+```
+
+### Newsletter
+Messages on production chain
+```{r newsletter, echo=FALSE}
+setwd("C:/Users/Volod/Documents/R/CoffeeGame")
+readLines("Reports/Newsletter.txt", skipNul = TRUE)
+
+```
+
+
+
+## Planter Results
+### Results
+### Messages
+Here some messages from Labor Union 
+You can also embed plots, for example:
+
+```{r }
+
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
